@@ -1,18 +1,17 @@
-import express from "express";
+import * as express from "express";
 import { ProductController } from "../controllers/ProductController";
 
 const router = express.Router();
 const productController = new ProductController();
 
 router.route(`/:id`)
-    .get(productController.getProduct.bind(productController))
-    .delete((req, res) => {})
-    .patch((req, res) => {}) // É utilizado para aplicação alterações parciais em um recurso
-    .put((req, res) => {}) // Substitui todas as atuais representações do recurso de destino pela carga de dados da requisição.
+    .get(productController.buy.bind(productController))
+    .delete(productController.delete.bind(productController))
+    .patch(productController.parcialUpdate.bind(productController)) 
+    .put(productController.update.bind(productController)) 
 
 router.route('/')
-    .get((req, res) => {res.status(200).send([])})
-    .post((req, res) => {res.status(201).send()})
-    .options((req, res) => {}) // Tem necessidade? 
+    .get(productController.list.bind(productController))
+    .post(productController.create.bind(productController))
 
 export default router;

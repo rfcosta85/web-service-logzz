@@ -1,5 +1,5 @@
 {
-    "server_port": "3001",
+    "server_port": 3000,
     "greeting": "Você consegue entregar hoje, aqui na minha cidade, o produto ",
     "redirect_delay": 2
 }

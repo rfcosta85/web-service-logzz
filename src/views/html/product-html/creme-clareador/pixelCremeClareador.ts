@@ -1,12 +1,6 @@
-import { Product } from "../models/ProductModel";
-import config from "../config/config.json"
-
-export class ProductRepository {
-    private products: { [key: string]: Product } = {
-        "creme-clareador": {
-            id: "1",
-            name: "Creme Clareador",
-            pixelFacebook: `
+export class HtmlGenerator {
+    generateCremeClareadorHtml(): string {
+        return `
             <!-- Meta Pixel Code -->
             <script>
             !function(f,b,e,v,n,t,s)
@@ -24,13 +18,6 @@ export class ProductRepository {
             src="https://www.facebook.com/tr?id=1167931291617315&ev=PageView&noscript=1"
             /></noscript>
             <!-- End Meta Pixel Code -->
-            `,
-            greeting: config.greeting,
-            redirectDelay: config.redirect_delay * 1000
-        }
-    };
-
-    public getProductById(id: string): Product | null {
-        return this.products[id] || null;
+        `;
     }
 }

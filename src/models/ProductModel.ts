@@ -1,7 +1,7 @@
 export type Product = {
-    id: string;
+    id?: string;
     name: string;
-    pixelFacebook: string;
+    pixelFacebook: any;
     greeting: string;
     redirectDelay: number
 }
